@@ -1,24 +1,23 @@
 <template>
   <div id="app">
-
-    <router-link to="/foo">Go to Foo</router-link>
-    <br>
-    <router-link to="/bar">Go to Bar</router-link>
-    <br>
-    <router-link to="/signup">signup</router-link>
-
     <router-view></router-view>
-
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import HeaderNavbar  from './components/HeaderNavbar.vue'
+import LeftNavbar  from './components/LeftNavbar.vue'
+
+import { store } from './store.js'
 
 export default {
-  name: 'app',
+  data () {
+    return {
+      user: function() { store.current_user }
+    }
+  },
   components: {
-    HelloWorld
+    HeaderNavbar, LeftNavbar
   }
 }
 </script>
